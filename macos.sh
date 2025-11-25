@@ -467,6 +467,9 @@ defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool t
 # Kill affected applications                                                  #
 ###############################################################################
 
+mkdir -p $DI_SCRIPT_STATE_DIR
+touch $HOME/.cache/dotfiles-scripts-state/.macos-script-completed
+
 for app in "Activity Monitor" \
 	"Address Book" \
 	"Calendar" \
@@ -492,3 +495,4 @@ for app in "Activity Monitor" \
 	killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+
